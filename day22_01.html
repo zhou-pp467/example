@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <label
+        >Number A:<input
+          id="radio-a"
+          type="radio"
+          name="math-obj"
+          value="a"/></label
+      ><input id="num-a" type="text" />
+      <label
+        >Number B:<input
+          id="radio-b"
+          type="radio"
+          name="math-obj"
+          value="b"/></label
+      ><input id="num-b" type="text" />
+    </div>
+    <div>
+      <button>判断当前选中的输入框输入内容是否为数字</button>
+      <button>把 A 四舍五入为 B 个小数位数的数字</button>
+      <button>当前选中数字的绝对值</button>
+      <button>对当前选中的数字进行上舍入</button>
+      <button>对当前选中的数字进行下舍入</button>
+      <button>把当前选中的数字四舍五入为最接近的整数</button>
+      <button>返回 A 和 B 中的最高值</button>
+      <button>返回 A 和 B 中的最低值</button>
+    </div>
+    <p id="result"></p>
+    <script>
+      var buttons = document.querySelectorAll('button'),
+        p = document.querySelector('#result'),
+        radioA = document.querySelector('#radio-a'),
+        radioB = document.querySelector('#radio-b'),
+        numA = document.querySelector('#num-a'),
+        numB = document.querySelector('#num-b'),
+        inputs = document.querySelectorAll('input')
+      buttons[0].addEventListener('click', isNumber, false)
+      buttons[1].addEventListener('click', tofixB, false)
+      buttons[2].addEventListener('click', numberAbs, false)
+      buttons[3].addEventListener('click', numberCeil, false)
+      buttons[4].addEventListener('click', numberFloor, false)
+      buttons[5].addEventListener('click', numberRound, false)
+      buttons[6].addEventListener('click', numberMax, false)
+      buttons[7].addEventListener('click', numberMin, false)
+      function getValue() {
+        for (let i = 0; i < inputs.length; i++) {
+          if (inputs[i].checked == true) {
+            var checkedRadio = inputs[i]
+          }
+        }
+        var value =
+          checkedRadio.parentElement.nextElementSibling.value == ''
+            ? NaN
+            : Number(checkedRadio.parentElement.nextElementSibling.value)
+        return value
+      }
+      function judgeNumber() {
+        if (
+          isNaN(Number(numA.value)) ||
+          isNaN(Number(numB.value)) ||
+          numA.value == null ||
+          numB.value == null ||
+          (numA.value == '' && numB.value == '')
+        ) {
+          console.log('请输入数字')
+          return false
+        } else {
+          return true
+        }
+      }
+      function isNumber() {
+        value = getValue()
+        // console.log(value)
+        if (!isNaN(value)) {
+          p.innerText = '是数字'
+        } else {
+          p.innerText = '不是数字'
+        }
+      }
+      function tofixB() {
+        if (!judgeNumber()) {
+          return
+        }
+        var numberA = Number(numA.value)
+        var numberB = Number(numB.value)
+        p.innerText = numberA.toFixed(numberB)
+      }
+      function numberAbs() {
+        if (!judgeNumber()) {
+          return
+        }
+        value = getValue()
+        p.innerText = Math.abs(value)
+      }
+      function numberCeil() {
+        if (!judgeNumber()) {
+          return
+        }
+        value = getValue()
+        p.innerText = Math.ceil(value)
+      }
+      function numberFloor() {
+        if (!judgeNumber()) {
+          return
+        }
+        value = getValue()
+        p.innerText = Math.floor(value)
+      }
+      function numberRound() {
+        if (!judgeNumber()) {
+          return
+        }
+        value = getValue()
+        p.innerText = Math.round(value)
+      }
+      function numberMax() {
+        if (!judgeNumber()) {
+          return
+        }
+        var numberA = Number(numA.value)
+        var numberB = Number(numB.value)
+        p.innerText = Math.max(numberA, numberB)
+      }
+      function numberMin() {
+        if (!judgeNumber()) {
+          return
+        }
+        var numberA = Number(numA.value)
+        var numberB = Number(numB.value)
+        p.innerText = Math.min(numberA, numberB)
+      }
+    </script>
+  </body>
+</html>

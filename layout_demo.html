@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      header {
+        width: 100%;
+        background-color: #000;
+      }
+      header .inner_header {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 960px;
+        color: #fff;
+      }
+      header .inner_header h1 {
+        vertical-align: middle;
+      }
+      header .inner_header .nav {
+        vertical-align: top;
+      }
+      header .inner_header .nav a {
+        color: #fff;
+      }
+      .banner {
+        position: relative;
+        width: 100%;
+        background-color: lime;
+        height: 200px;
+      }
+      .banner ul {
+        position: absolute;
+        bottom: 10px;
+        right: 16%;
+      }
+      .banner ul li {
+        width: 30px;
+        height: 40px;
+        float: left;
+        list-style: none;
+        color: #000;
+        background-color: rgba(255, 255, 255, 0.5);
+        line-height: 40px;
+        text-align: center;
+        margin-left: 10px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+      }
+      .banner ul li.active {
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: relative;
+        top: -20px;
+        padding-top: 20px;
+        box-sizing: border-box;
+      }
+      nav {
+        width: 100%;
+        margin: 10px auto 0;
+        border-bottom: 1px solid #ccc;
+      }
+      nav .inner_nav {
+        display: flex;
+        width: 960px;
+        margin: 0 auto;
+      }
+      .inner_nav div {
+        background-color: #eee;
+        width: 80px;
+        height: 40px;
+        border-radius: 20px 20px 0 0;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        box-sizing: border-box;
+      }
+      .inner_nav div.active {
+        background-color: #fff;
+      }
+      .inner_nav div.active::after {
+        position: relative;
+        bottom: 1px;
+        display: block;
+        width: 80px;
+        /* height: 1px; */
+        height: 4px;
+        background-color: #fff;
+        content: '';
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        width: 960px;
+        margin: 8px auto 0;
+      }
+      section .row_1 {
+        display: flex;
+        justify-content: space-between;
+      }
+      section .row_2 {
+        justify-content: space-between;
+        display: flex;
+        margin: 10px 0;
+      }
+      section .row_3 {
+        justify-content: space-between;
+        display: flex;
+      }
+      section > div > div {
+        box-sizing: border-box;
+        padding: 80px;
+        border: 1px solid #ccc;
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 14px;
+      }
+      section > div > div:not(:first-of-type) {
+        margin-left: 10px;
+      }
+      footer {
+        margin-top: 10px;
+        width: 100%;
+        height: 100px;
+        background-color: #aaa;
+        text-align: center;
+        color: #fff;
+        box-sizing: border-box;
+        padding-top: 30px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="inner_header">
+        <h1>Logo</h1>
+        <div class="nav">
+          <a href="">Github</a>
+          <a href="">Register</a>
+          <a href="">login</a>
+        </div>
+      </div>
+    </header>
+    <div class="banner">
+      <ul>
+        <li>1</li>
+        <li class="active">2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+    <nav>
+      <div class="inner_nav">
+        <div class="home active">HOME</div>
+        <div class="profile">PROFILE</div>
+        <div class="about">ABOUT</div>
+      </div>
+    </nav>
+    <section>
+      <div class="row_1">
+        <div class="content_1">This is Content 1</div>
+        <div class="content_2">MaybeContent 2</div>
+        <div class="content_3">Content 3</div>
+      </div>
+      <div class="row_2">
+        <div class="content_4">Content 4</div>
+        <div class="content_5">Content 5</div>
+        <div class="content_6">Content 6</div>
+        <div class="content_7">Content 7</div>
+      </div>
+      <div class="row_3">
+        <div class="content_8">Content 8</div>
+        <div class="content_9">Content 9</div>
+        <div class="content_10">Content 10</div>
+      </div>
+    </section>
+    <footer>asdfghjkl</footer>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="greetings"></h1>
+    <script>
+      var time = new Date().getHours(),
+        greetings
+      if (time >= 12 && time <= 18) {
+        greetings = '下午好~'
+      } else if (time > 18 && time < 24) {
+        greetings = '晚上好~'
+      } else if (time < 4) {
+        greetings = '凌晨好~'
+      } else if (time >= 4 && time < 9) {
+        greetings = '早上好~'
+      } else if (time >= 9 && time <= 11) {
+        greetings = '上午好~'
+      }
+      document.getElementById('greetings').innerText = greetings
+    </script>
+  </body>
+</html>

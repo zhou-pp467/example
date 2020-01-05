@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 480px;
+        height: 480px;
+        background-image: url(./1.jpg);
+        background-position: 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      var div = document.querySelectorAll('div')[0],
+        n = 0
+      function circle() {
+        var Id1 = setInterval(function() {
+          console.log(n)
+          n++
+          div.style.backgroundPositionY = n * 480 + 'px'
+          if (n > 15) {
+            clearInterval(Id1)
+            var Id2 = setInterval(function() {
+              div.style.backgroundPositionY = n * 480 + 'px'
+              console.log(n)
+              n--
+              if (n < 1) {
+                clearInterval(Id2)
+                circle()
+              }
+            }, 100)
+          }
+        }, 100)
+      }
+      circle()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var addTwoNumbers = function(l1, l2) {
+        var sum = 0
+        var n1 = 0
+        var n2 = 0
+        var res = []
+        for (var i = l1.length; i > 0; i--) {
+          n1 += l1[i - 1] * Math.pow(10, i - 1)
+        }
+        for (var j = l2.length; j > 0; j--) {
+          n2 += l2[j - 1] * Math.pow(10, j - 1)
+        }
+        sum = n1 + n2
+        var bit = sum.toString().length
+        for (var k = 0; k < bit; k++) {
+          res[k] = sum % 10
+          sum = (sum - res[k]) / 10
+        }
+        return res
+      }
+      console.log(addTwoNumbers([2, 4, 3], [5, 6, 4]))
+    </script>
+  </body>
+</html>

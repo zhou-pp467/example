@@ -1,0 +1,25 @@
+body {
+  padding-left: 300px;
+}
+header h1 {
+  box-sizing: border-box;
+  float: left;
+  padding-left: 46px;
+  padding-top: 100px;
+  width: 160px;
+  height: 700px;
+  background-color: lightblue;
+  color: white;
+}
+main {
+  margin-left: 200px;
+  padding-top: 30px;
+}
+main h1 {
+  margin: 180px auto;
+}
+.ability span,
+.education span,
+.project span {
+  display: block;
+}

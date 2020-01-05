@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //   1.	数组去重（Set 方法）
+            // let  arr =[1,2,2,8,3,4,3,8]
+            {
+                let arr = [1, 2, 2, 8, 3, 4, 3, 8];
+                let s = new Set(arr);
+                console.log(s); //太棒啦
+                //一般常用这么写， let s = [...new Set(arr)]
+            }
+
+            //   2.	箭头函数代替回调函数
+            //   function	hello(){ console.log(1111)}
+            //   let a1 = [1,2,3].map(function(x){return x*x})
+            {
+                let hello = () => console.log(1111);
+                let a1 = [1, 2, 3].map(x => x * x);
+                hello();
+                console.log(a1); //太棒啦，react中基本都是这种用法
+            }
+
+            //   3.	合并数组 将arr1跟其他两个数组合并
+            //   let  arr1 =[1,2,3]
+            //   let arr2 =[“a”],
+            //   let arr3 =[“name”,”hello”]
+            {
+                let arr1 = [1, 2, 3];
+                let arr2 = ['a'];
+                let arr3 = ['name', 'hello'];
+                let newArr = [...arr1, ...arr2, ...arr3];
+                console.log(newArr);
+
+                //试试这种 let newArr=arr1.concat(arr2,arr3)
+            }
+
+            //   4.	过滤id为3的数组
+            //   let arr1 =[{id:1,name:”xm”},{id:2,name:”hx”},{id:3,name:”zp”}]
+            {
+                let arr1 = [
+                    { id: 1, name: 'xm' },
+                    { id: 2, name: 'hx' },
+                    { id: 3, name: 'zp' },
+                ];
+                let newArr = [];
+                for (let obj of arr1) {
+                    if (obj.id !== 3) {
+                        newArr.push(obj);
+                    }
+                }
+                console.log(newArr);
+
+                //试试这个  let newArr = arr1.filter((item,index)=>item.id === 3)
+            }
+
+            //   5.	数组降维 用generator迭代器
+            //   let arr4 = [1,[[2,3],4],[5,6]]
+            {
+                let arr4 = [1, [[2, 3], 4], [5, 6]],
+                    newArr = [];
+                let flat = function*(arr) {
+                    for (let i = 0; i < arr.length; i++) {
+                        if (typeof arr[i] !== 'number') {
+                            yield* flat(arr[i]);
+                        } else {
+                            yield arr[i];
+                        }
+                    }
+                };
+                for (let n of flat(arr4)) {
+                    newArr.push(n);
+                }
+                console.log(newArr); //太棒啦
+            }
+
+            //   6.	将数组转化为对象
+            //   let  defineArr = [1,2,3,4,5]
+            {
+                let defineArr = [1, 2, 3, 4, 5];
+                let obj = Object.assign({}, defineArr);
+                console.log(obj);
+
+                //试试这个  let obj={...defineArr}
+            }
+
+            //   7.	从数组中判断所有的name是否为小明
+            //   let mixture = [{id:1,name:”小明”},{id:2,name:”小虹”},{id:3,name:”小明”}]
+            {
+                let mixture = [
+                    { id: 1, name: '小明' },
+                    { id: 2, name: '小虹' },
+                    { id: 3, name: '小明' },
+                ];
+                console.log(
+                    mixture.every((item, index, arr) => {
+                        return item.name === '小明';
+                    })
+                ); //太棒啦
+            }
+
+            //   8．从数组中循环出键为superman的
+            //   let	supers=[{id:1,superman:”spider”},{id:2,superman:”clark”},{id:3,superman:”black widow”},{id:4,superman:”doctor stranger”}]
+            {
+                let supers = [
+                        { id: 1, superman: 'spider' },
+                        { id: 2, superman: 'clark' },
+                        { id: 3, superman: 'black widow' },
+                        { id: 4, superman: 'doctor stranger' },
+                    ],
+                    arr = [];
+                supers.forEach((item, index) => {
+                    arr.push(item.superman);
+                });
+                console.log(arr);
+                console.log(
+                    supers.map((item, index, arr) => {
+                        return item.superman;
+                    }) //这个常用 太棒啦
+                );
+            }
+
+            //   9.	从数组中获取随机值
+            // let defaultArr = [“不要小看自己”,”今天阳光很好”,”周鹏鹏最棒”,”何星星最好看”]
+            {
+                let defaultArr = ['不要小看自己', '今天阳光很好', '周鹏鹏最棒', '何星星最好看'];
+                let randomContent = defaultArr[Math.floor(Math.random() * defaultArr.length)];
+                console.log(randomContent); //这个写的好
+            }
+
+            //   10. 对数组进行求和
+            // let common = [22,33,44,55,1,66,777]
+            {
+                let common = [22, 33, 44, 55, 1, 66, 777],
+                    sum = 0;
+                for (let i of common) {
+                    sum += i;
+                }
+                console.log(sum);
+
+                //试试这个 let sum = common.reduce((x,y)=>x+y)
+            }
+        </script>
+    </body>
+</html>
